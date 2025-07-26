@@ -20,11 +20,15 @@ JavaScript
 ## Sections Overview
 Home
 - A section introducing Ganesh Puram with a profile picture and description.
+  
 About
 - A section detailing the skills and experience of Ganesh Puram.
+  
 Internships
 - A section highlighting internships completed with descriptions and images.
+  
 Projects
 - A section showcasing various projects with links to live demos and images.
+  
 Contact
 - A contact form for visitors to send messages.
