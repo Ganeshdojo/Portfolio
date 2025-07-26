@@ -14,7 +14,8 @@ window.addEventListener("load", () => {
 
       // Add completion animation
       // Add more effects to the loader text on completion (no rotate)
-      loaderText.style.transition = "transform 0.4s, color 0.4s, text-shadow 0.5s, letter-spacing 0.4s";
+      loaderText.style.transition =
+        "transform 0.4s, color 0.4s, text-shadow 0.5s, letter-spacing 0.4s";
       loaderText.style.transform = "scale(1.15)";
       loaderText.style.color = "#fc405a";
       loaderText.style.letterSpacing = "12px";
