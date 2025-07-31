@@ -13,11 +13,10 @@ window.addEventListener("load", () => {
       clearInterval(progressInterval);
 
       // Add completion animation
-      // Add more effects to the loader text on completion (no rotate)
       loaderText.style.transition =
         "transform 0.4s, color 0.4s, text-shadow 0.5s, letter-spacing 0.4s";
       loaderText.style.transform = "scale(1.15)";
-      loaderText.style.color = "#fc405a";
+      loaderText.style.color = "#000000";
       loaderText.style.letterSpacing = "12px";
       setTimeout(() => {
         loaderText.style.transform = "scale(1)";
@@ -28,7 +27,6 @@ window.addEventListener("load", () => {
 
       setTimeout(() => {
         loadingScreen.classList.add("hidden");
-        // Enable scrolling after loading
         document.body.style.overflow = "auto";
       }, 500);
     }
@@ -51,10 +49,8 @@ window.addEventListener("scroll", () => {
   const docHeight = document.body.offsetHeight - window.innerHeight;
   const scrollPercent = (scrollTop / docHeight) * 100;
 
-  // Smooth progress animation
   scrollProgress.style.width = scrollPercent + "%";
 
-  // Add glow effect based on scroll position
   if (scrollPercent > 50) {
     scrollProgress.style.boxShadow = "0 0 20px rgba(0, 0, 0, 0.8)";
   } else {
@@ -74,9 +70,7 @@ window.addEventListener("scroll", () => {
 });
 
 backToTopBtn.addEventListener("click", () => {
-  // Add click animation
   backToTopBtn.style.transform = "scale(0.9)";
-
   setTimeout(() => {
     backToTopBtn.style.transform = "scale(1)";
   }, 100);
@@ -97,16 +91,12 @@ menu.addEventListener("click", (e) => {
     menu.src = "./images/close.svg";
     nav.classList.add("active");
     flag = false;
-
-    // Add menu opening animation
     menu.style.transform = "rotate(180deg)";
     menu.style.transition = "transform 0.3s ease";
   } else {
     menu.src = "./images/menu.svg";
     nav.classList.remove("active");
     flag = true;
-
-    // Add menu closing animation
     menu.style.transform = "rotate(0deg)";
   }
 });
@@ -125,50 +115,31 @@ document.querySelectorAll("nav a").forEach((link) => {
 // Project data for modal
 const projectData = {
   "crop-prediction": {
+    key: "crop-prediction",
     title: "Crop Prediction App",
     description:
-      "A machine learning-powered web application that predicts optimal crop selection based on environmental factors, soil conditions, and historical data. Built during the Slash Mark internship.",
-    techStack: ["React", "JavaScript", "MySQL", "Machine Learning", "Python"],
+      "A machine learning-powered web application that predicts optimal crop selection based on environmental factors, soil conditions, and historical data. Built during the Slash Mark internship with 85% prediction accuracy.",
+    techStack: [
+      "React",
+      "JavaScript",
+      "MySQL",
+      "Machine Learning",
+      "Python",
+      "Django",
+    ],
     features: [
       "ML-powered predictions",
       "Real-time data integration",
       "Interactive visualizations",
       "85% prediction accuracy",
       "Responsive design",
+      "Full-stack application",
     ],
-    liveLink: "https://github.com/Ganeshdojo/crop-recommendation-system",
-    githubLink: "https://github.com/Ganeshdojo/crop-recommendation-system",
-  },
-  "temperature-converter": {
-    title: "Temperature Converter",
-    description:
-      "A utility application that converts temperatures between Celsius, Fahrenheit, and Kelvin with real-time updates and a clean, intuitive interface.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    features: [
-      "Real-time conversion",
-      "Multiple temperature scales",
-      "Clean UI design",
-      "Responsive layout",
-    ],
-    liveLink: "https://ganeshdojo.github.io/Temperature-Converter/",
-    githubLink: "https://github.com/Ganeshdojo/Temperature-Converter",
-  },
-  "link-shortener": {
-    title: "Link Shortener",
-    description:
-      "A URL shortening service that creates compact, shareable links. It uses tinyurl api to shorten the links.",
-    techStack: ["HTML", "CSS", "JavaScript", "TinyURL API"],
-    features: [
-      "URL shortening",
-      "TinyURL API",
-      "Responsive design",
-      "Shareable links",
-      "Copy to clipboard",
-    ],
-    liveLink: "https://ganeshdojo.github.io/link-shortener/",
-    githubLink: "https://github.com/Ganeshdojo/Link-Shortener",
+    liveLink: "https://agropredicta.vercel.app/",
+    githubLink: "https://github.com/Ganeshdojo/Crop-Prediction-System",
   },
   "github-finder": {
+    key: "github-finder",
     title: "GitHub Profile Finder",
     description:
       "A web application that allows users to search for GitHub profiles and view detailed information including repositories, followers, and activity statistics.",
@@ -180,36 +151,42 @@ const projectData = {
       "Real-time data",
       "Responsive design",
     ],
-    liveLink: "https://ganeshdojo.github.io/GitHub-Profile-Finder/",
+    liveLink: "https://githubfinder-ganeshp.vercel.app/",
     githubLink: "https://github.com/Ganeshdojo/GitHub-Profile-Finder",
   },
   "code-editor": {
+    key: "code-editor",
     title: "Code Editor",
     description:
-      "A feature-rich online code editor with syntax highlighting, supports HTML, CSS, and JavaScript.",
+      "A feature-rich online code editor with syntax highlighting, supports HTML, CSS, and JavaScript with real-time preview.",
     techStack: ["HTML", "CSS", "JavaScript"],
     features: [
       "HTML, CSS, JavaScript",
+      "Real-time preview",
       "Responsive design",
       "Dark / Light mode",
     ],
-    liveLink: "https://ganeshdojo.github.io/Code-Editor/",
+    liveLink: "https://codebrew-ganeshp.vercel.app/",
     githubLink: "https://github.com/Ganeshdojo/Code-Editor",
   },
-  "stephen-hawking": {
-    title: "Stephen Hawking Tribute",
+  "link-shortener": {
+    key: "link-shortener",
+    title: "Link Shortener",
     description:
-      "A tribute page dedicated to the legendary physicist Stephen Hawking, showcasing his life, achievements, and contributions to science.",
-    techStack: ["HTML", "CSS"],
+      "A URL shortening service that creates compact, shareable links. It uses tinyurl api to shorten the links.",
+    techStack: ["HTML", "CSS", "JavaScript", "TinyURL API"],
     features: [
-      "Interactive timeline",
-      "Biography sections",
-      "Achievements highlights",
+      "URL shortening",
+      "TinyURL API",
+      "Responsive design",
+      "Shareable links",
+      "Copy to clipboard",
     ],
-    liveLink: "https://ganeshdojo.github.io/Stephen_Hawking/",
-    githubLink: "https://github.com/Ganeshdojo/Stephen_Hawking",
+    liveLink: "https://link-shortener-ganeshp.vercel.app/",
+    githubLink: "https://github.com/Ganeshdojo/Link-Shortener",
   },
   "weather-forecast": {
+    key: "weather-forecast",
     title: "Weather Forecast App",
     description:
       "A real-time weather application that provides current weather conditions and forecasts for any location worldwide.",
@@ -220,24 +197,11 @@ const projectData = {
       "5-day forecast",
       "Responsive design",
     ],
-    liveLink: "https://ganeshdojo.github.io/weather-Forecast--v1/",
+    liveLink: "https://weather-forecast-ganeshp.vercel.app/",
     githubLink: "https://github.com/Ganeshdojo/weather-Forecast--v1",
   },
-  calculator: {
-    title: "Calculator",
-    description:
-      "A fully functional calculator with a modern design, supporting basic arithmetic operations and advanced calculations.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    features: [
-      "Basic arithmetic operations",
-      "Clear and delete functions",
-      "Responsive design",
-      "Keyboard support",
-    ],
-    liveLink: "https://ganeshdojo.github.io/Calculator/",
-    githubLink: "https://github.com/Ganeshdojo/Calculator",
-  },
   "todo-app": {
+    key: "todo-app",
     title: "Todo App",
     description:
       "A task management application that helps users organize and track their daily tasks and activities.",
@@ -248,10 +212,55 @@ const projectData = {
       "Local storage persistence",
       "Responsive design",
     ],
-    liveLink: "https://ganeshdojo.github.io/Todo-App/",
+    liveLink: "https://todo-ganeshp.vercel.app/",
     githubLink: "https://github.com/Ganeshdojo/Todo-App",
   },
+  calculator: {
+    key: "calculator",
+    title: "Calculator",
+    description:
+      "A fully functional calculator with a modern design, supporting basic arithmetic operations and advanced calculations.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    features: [
+      "Basic arithmetic operations",
+      "Clear and delete functions",
+      "Responsive design",
+      "Keyboard support",
+    ],
+    liveLink: "https://calc-ganeshp.vercel.app/",
+    githubLink: "https://github.com/Ganeshdojo/Calculator",
+  },
+  "temperature-converter": {
+    key: "temperature-converter",
+    title: "Temperature Converter",
+    description:
+      "A utility application that converts temperatures between Celsius, Fahrenheit, and Kelvin with real-time updates and a clean, intuitive interface.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    features: [
+      "Real-time conversion",
+      "Multiple temperature scales",
+      "Clean UI design",
+      "Responsive layout",
+    ],
+    liveLink: "https://tempconv-ganeshp.vercel.app/",
+    githubLink: "https://github.com/Ganeshdojo/Temperature-Converter",
+  },
+  "stephen-hawking": {
+    key: "stephen-hawking",
+    title: "Stephen Hawking Tribute",
+    description:
+      "A tribute page dedicated to the legendary physicist Stephen Hawking, showcasing his life, achievements, and contributions to science.",
+    techStack: ["HTML", "CSS"],
+    features: [
+      "Interactive timeline",
+      "Biography sections",
+      "Achievements highlights",
+    ],
+    liveLink: "https://hawking-tribute-ganeshp.vercel.app/",
+    githubLink: "https://github.com/Ganeshdojo/Stephen_Hawking",
+  },
   "landing-page": {
+    key: "landing-page",
     title: "Landing Page",
     description:
       "A modern, responsive landing page with smooth animations and engaging user interface design.",
@@ -262,108 +271,146 @@ const projectData = {
       "Modern UI/UX",
       "Cross-browser compatibility",
     ],
-    liveLink: "https://ganeshdojo.github.io/fm-sunnyside-landing-page/",
+    liveLink: "https://landingpg-ganeshp.vercel.app/",
     githubLink: "https://github.com/Ganeshdojo/fm-sunnyside-landing-page",
+  },
+  "color-generator": {
+    key: "color-generator",
+    title: "Color Generator App",
+    description:
+      "A dynamic color generator tool that allows users to input a base color and generate tints and shades instantly. The app visually displays color variations and provides hex codes, making it useful for designers and developers.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    features: [
+      "Dynamic color generation",
+      "Tints and shades",
+      "Hex code display",
+      "Responsive UI",
+      "Color algorithm logic",
+    ],
+    liveLink: "https://clrgen-ganeshp.vercel.app/",
+    githubLink: "https://github.com/Ganeshdojo/Random-Colour-Generator-v1",
   },
 };
 
-// Modal functionality
-const modal = document.getElementById("projectModal");
-const modalContent = document.getElementById("modalContent");
-const closeBtn = document.querySelector(".close");
-
-// Add click event to project containers
+// Initialize project cards with modal functionality
 document.querySelectorAll(".project-link").forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const projectKey = link.getAttribute("data-project");
-    const project = projectData[projectKey];
+  const projectKey = link.getAttribute("data-project");
+  const project = projectData[projectKey];
 
-    if (project) {
-      openModal(project);
-    }
-  });
+  if (project) {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      openProjectModal(project);
+    });
+  }
 });
 
-// Add click event to regular project links (non-modal projects)
-document.querySelectorAll('a[href^="https://"]').forEach((link) => {
-  link.addEventListener("click", (e) => {
-    // Allow normal navigation for external links
-    // No preventDefault here
-  });
-});
+// Modal functionality - Updated with new structure
+function openProjectModal(project) {
+  let projectImage = "./images/calculator.jpg"; // default
 
-function openModal(project) {
-  modalContent.innerHTML = `
-    <h2>${project.title}</h2>
-    <p class="project-description">${project.description}</p>
-    
-    <div class="project-details">
-      <div class="tech-stack">
-        <h3>Tech Stack</h3>
-        <div class="tech-tags">
-          ${project.techStack
-            .map((tech) => `<span class="tech-tag">${tech}</span>`)
-            .join("")}
+  const projectImages = {
+    "crop-prediction": "./images/crop_prediction.png",
+    "github-finder": "./images/github_finder.png",
+    "code-editor": "./images/code_editor.png",
+    "link-shortener": "./images/link_shortener.png",
+    "weather-forecast": "./images/weather.jpg",
+    "todo-app": "./images/todo.jpg",
+    calculator: "./images/calculator.jpg",
+    "temperature-converter": "./images/temperature_converter.png",
+    "stephen-hawking": "./images/stephen.jpg",
+    "landing-page": "./images/landing_page.jpg",
+    "color-generator": "./images/color_gen.png",
+  };
+
+  if (projectImages[project.key]) {
+    projectImage = projectImages[project.key];
+  }
+
+  const modalOverlay = document.createElement("div");
+  modalOverlay.className = "modal-overlay";
+  modalOverlay.innerHTML = `
+    <div class="modal-content">
+      <button class="modal-close">×</button>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img src="${projectImage}" alt="${project.title}">
         </div>
-      </div>
-      
-      <div class="features">
-        <h3>Key Features</h3>
-        <ul>
-          ${project.features.map((feature) => `<li>${feature}</li>`).join("")}
-        </ul>
-      </div>
-      
-      <div class="project-links">
-        <a href="${
-          project.liveLink
-        }" target="_blank" class="btn btn-primary">Live Demo</a>
-        <a href="${
-          project.githubLink
-        }" target="_blank" class="btn btn-secondary">View Code</a>
+        <div class="modal-info">
+          <div class="modal-info-content">
+            <h2>${project.title}</h2>
+            <p class="project-description">${project.description}</p>
+            
+            <div class="tech-stack">
+              <h3>Tech Stack</h3>
+              <div class="tech-tags">
+                ${project.techStack
+                  .map((tech) => `<span class="tech-tag">${tech}</span>`)
+                  .join("")}
+              </div>
+            </div>
+            
+            <div class="features">
+              <h3>Key Features</h3>
+              <ul>
+                ${project.features
+                  .map((feature) => `<li>${feature}</li>`)
+                  .join("")}
+              </ul>
+            </div>
+          </div>
+          
+          <div class="project-links">
+            <a href="${
+              project.liveLink
+            }" target="_blank" class="btn btn-primary">Live Demo</a>
+            <a href="${
+              project.githubLink
+            }" target="_blank" class="btn btn-secondary">View Code</a>
+          </div>
+        </div>
       </div>
     </div>
   `;
 
-  modal.style.display = "block";
-  document.body.style.overflow = "hidden";
+  document.body.appendChild(modalOverlay);
+
+  const closeBtn = modalOverlay.querySelector(".modal-close");
+  const closeModal = () => {
+    modalOverlay.remove();
+  };
+
+  closeBtn.addEventListener("click", closeModal);
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
 }
-
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-  document.body.style.overflow = "auto";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
-});
 
 // Contact form functionality with Formspree
 const contactForm = document.querySelector("#contact form");
 const formMessages = document.getElementById("form-messages");
 
 contactForm.addEventListener("submit", function (e) {
-  // Show loading state
   const submitBtn = document.querySelector('#fsubmit[type="submit"]');
   const originalText = submitBtn.value;
   submitBtn.value = "Sending...";
   submitBtn.disabled = true;
 
-  // Clear previous messages
   formMessages.textContent = "";
   formMessages.className = "form-messages";
 
-  // Formspree will handle the submission automatically
-  // We'll check for success/error after a delay
   setTimeout(() => {
     submitBtn.value = originalText;
     submitBtn.disabled = false;
 
-    // Check if form was submitted successfully
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("success") === "true") {
       formMessages.textContent = "Message sent successfully!";
@@ -392,7 +439,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for scroll animations
 document
-  .querySelectorAll(".fade-in, #about, #intern, #projects, #contact")
+  .querySelectorAll(".fade-in, #about, #skills, #intern, #projects, #contact")
   .forEach((el) => {
     observer.observe(el);
   });
